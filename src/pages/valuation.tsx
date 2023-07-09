@@ -1,13 +1,5 @@
 import { useRouter } from "next/router";
-import {
-  Flex,
-  Center,
-  Box,
-  Heading,
-  Stack,
-  Text,
-  Image,
-} from "@chakra-ui/react";
+import { Flex, Box, Heading, Stack, Text, Image } from "@chakra-ui/react";
 
 // sm 480px
 // md 768px
@@ -21,7 +13,22 @@ export default function Valuation() {
     query: { carNumberPlate, carMileage, valuationData },
   } = router;
 
-  let parsedValuationData = JSON.parse(valuationData as string);
+  let parsedValuationData = {
+    manufacturer: "",
+    model: "",
+    year: 0,
+    colour: "",
+    transmission: "",
+    engineSize: 0,
+    firstRegistered: "",
+    price: 0,
+    pictureSource: "",
+  };
+
+  if (valuationData) {
+    parsedValuationData = JSON.parse(valuationData as string);
+    console.log(parsedValuationData);
+  }
 
   console.log(parsedValuationData);
 
