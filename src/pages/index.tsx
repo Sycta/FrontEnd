@@ -1,11 +1,58 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import { useState } from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import {
+  Input,
+  Stack,
+  Center,
+  Flex,
+  FormControl,
+  FormLabel,
+  Button,
+} from "@chakra-ui/react";
 
 export default function Home() {
+  const router = useRouter();
+  const [carNumberPlate, setCarNumberPlate] = useState("");
+  const [carMileage, setCarMileage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleButtonClick = () => {
+    if (carNumberPlate && carMileage) {
+      setIsLoading(true);
+
+      let baseUrl;
+      if (process.env.NODE_ENV === "development") {
+        baseUrl = "http://localhost:8080";
+      } else {
+        baseUrl = "https://buy-any-car-693543259e40.herokuapp.com"; // Replace with your production API URL
+      }
+
+      const url = `${baseUrl}/api/v1/valuation?reg=${carNumberPlate}&miles=${carMileage}`;
+
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the response data here
+          console.log(data);
+          setIsLoading(false);
+          router.push({
+            pathname: "/valuation",
+            query: {
+              carNumberPlate,
+              carMileage,
+              valuationData: JSON.stringify(data),
+            },
+          });
+        })
+        .catch((error) => {
+          // Handle any errors here
+          console.error(error);
+          setIsLoading(false);
+        });
+    }
+  };
+
   return (
     <>
       <Head>
@@ -14,101 +61,51 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
+      <main>
+        <Flex
+          backgroundColor="gray.800"
+          h="100vh"
+          w="100%"
+          color="white"
+          alignContent={"center"}
+          justifyContent={"center"}
+        >
+          <Center>
+            <Flex direction="column" gap={4}>
+              <FormControl>
+                <FormLabel>Car Number Plate</FormLabel>
+                <Input
+                  type="text"
+                  placeholder="KU75AZZ"
+                  size={"lg"}
+                  mb={4}
+                  value={carNumberPlate}
+                  onChange={(e) => setCarNumberPlate(e.target.value)}
+                />
+                <FormLabel>Car Mileage</FormLabel>
+                <Input
+                  type="number"
+                  placeholder="50000"
+                  size={"lg"}
+                  width="80"
+                  value={carMileage}
+                  onChange={(e) => setCarMileage(e.target.value)}
+                />
+              </FormControl>
+              <Button
+                type="submit"
+                width={80}
+                onClick={handleButtonClick}
+                isLoading={isLoading}
+                loadingText="Loading"
+                isDisabled={!carNumberPlate || !carMileage}
+              >
+                {isLoading ? "Loading" : "Value my Car"}
+              </Button>
+            </Flex>
+          </Center>
+        </Flex>
       </main>
     </>
-  )
+  );
 }
