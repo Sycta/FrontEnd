@@ -3,12 +3,12 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import {
   Input,
-  Stack,
   Center,
   Flex,
   FormControl,
   FormLabel,
   Button,
+  Text,
 } from "@chakra-ui/react";
 
 export default function Home() {
@@ -16,8 +16,12 @@ export default function Home() {
   const [carNumberPlate, setCarNumberPlate] = useState("");
   const [carMileage, setCarMileage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [requestError, setRequestError] = useState(false);
 
   const handleButtonClick = () => {
+    // Reset the request error state
+    setRequestError(false);
+
     if (carNumberPlate && carMileage) {
       setIsLoading(true);
 
@@ -49,6 +53,7 @@ export default function Home() {
           // Handle any errors here
           console.error(error);
           setIsLoading(false);
+          setRequestError(true);
         });
     }
   };
@@ -102,6 +107,11 @@ export default function Home() {
               >
                 {isLoading ? "Loading" : "Value my Car"}
               </Button>
+              {requestError && (
+                <Text color="red.500" textAlign="center">
+                  An error occurred. Please try again.
+                </Text>
+              )}
             </Flex>
           </Center>
         </Flex>
