@@ -1,63 +1,9 @@
-import { useState } from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import {
-  Input,
-  Center,
-  Flex,
-  FormControl,
-  FormLabel,
-  Button,
-  Text,
-} from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import Form from "@/Components/IndexPage/Form";
+import Highlights from "@/Components/IndexPage/Highlights";
 
 export default function Home() {
-  const router = useRouter();
-  const [carNumberPlate, setCarNumberPlate] = useState("");
-  const [carMileage, setCarMileage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [requestError, setRequestError] = useState(false);
-
-  const handleButtonClick = () => {
-    // Reset the request error state
-    setRequestError(false);
-
-    if (carNumberPlate && carMileage) {
-      setIsLoading(true);
-
-      let baseUrl;
-      if (process.env.NODE_ENV === "development") {
-        baseUrl = "http://localhost:8080";
-      } else {
-        baseUrl = "https://buy-any-car-693543259e40.herokuapp.com"; // Replace with your production API URL
-      }
-
-      const url = `${baseUrl}/api/v1/valuation?reg=${carNumberPlate}&miles=${carMileage}`;
-
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          // Handle the response data here
-          console.log(data);
-          setIsLoading(false);
-          router.push({
-            pathname: "/valuation",
-            query: {
-              carNumberPlate,
-              carMileage,
-              valuationData: JSON.stringify(data),
-            },
-          });
-        })
-        .catch((error) => {
-          // Handle any errors here
-          console.error(error);
-          setIsLoading(false);
-          setRequestError(true);
-        });
-    }
-  };
-
   return (
     <>
       <Head>
@@ -67,54 +13,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Flex
-          backgroundColor="gray.800"
-          h="100vh"
-          w="100%"
-          color="white"
-          alignContent={"center"}
-          justifyContent={"center"}
-        >
-          <Center>
-            <Flex direction="column" gap={4}>
-              <FormControl>
-                <FormLabel>Car Number Plate</FormLabel>
-                <Input
-                  type="text"
-                  placeholder="KU75AZZ"
-                  size={"lg"}
-                  mb={4}
-                  value={carNumberPlate}
-                  onChange={(e) => setCarNumberPlate(e.target.value)}
-                />
-                <FormLabel>Car Mileage</FormLabel>
-                <Input
-                  type="number"
-                  placeholder="50000"
-                  size={"lg"}
-                  width="80"
-                  value={carMileage}
-                  onChange={(e) => setCarMileage(e.target.value)}
-                />
-              </FormControl>
-              <Button
-                type="submit"
-                width={80}
-                onClick={handleButtonClick}
-                isLoading={isLoading}
-                loadingText="Loading"
-                isDisabled={!carNumberPlate || !carMileage}
-              >
-                {isLoading ? "Loading" : "Value my Car"}
-              </Button>
-              {requestError && (
-                <Text color="red.500" textAlign="center">
-                  An error occurred. Please try again.
-                </Text>
-              )}
-            </Flex>
-          </Center>
-        </Flex>
+        <Box backgroundColor="#EAEAEA" h="100vh" w="100%">
+          <Form />
+          <Highlights />
+        </Box>
       </main>
     </>
   );
