@@ -99,12 +99,12 @@ const Form = () => {
           fontSize={"60px"}
           fontWeight={"bold"}
           textAlign={"center"}
+          alignContent={"center"}
           width={"100%"}
           height={"80px"}
           maxW={"385px"}
           maxLength={8}
           color={"#222"}
-          mb={4}
           value={carNumberPlate}
           fontFamily={"UKNumberPlate"}
           onChange={handleInputChange}
