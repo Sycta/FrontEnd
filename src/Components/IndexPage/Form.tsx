@@ -101,8 +101,8 @@ const Form = () => {
           textAlign={"center"}
           alignContent={"center"}
           width={"100%"}
-          height={"80px"}
           maxW={"385px"}
+          py={10}
           maxLength={8}
           color={"#222"}
           value={carNumberPlate}
@@ -120,7 +120,7 @@ const Form = () => {
           fontWeight={"bold"}
           textAlign={"center"}
           width={"100%"}
-          height={"60px"}
+          py={8}
           maxW={"385px"}
           min={1}
           max={999999}
