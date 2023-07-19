@@ -19,7 +19,7 @@ const sections = [
   {
     icon: GoVerified,
     heading: "Instant Verification",
-    text: "Experience instant verification of your car's details for a seamless selling process.",
+    text: "Experience instant verification of your cars details for a seamless selling process.",
   },
   {
     icon: BsLightningFill,
