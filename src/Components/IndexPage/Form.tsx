@@ -97,7 +97,7 @@ const Form = () => {
         <Input
           type="text"
           placeholder="YOUR REG"
-          fontSize={"60px"}
+          fontSize={{ base: "40px", sm: "40px", md: "60px" }}
           fontWeight={"bold"}
           textAlign={"center"}
           width={"100%"}
@@ -107,8 +107,8 @@ const Form = () => {
           color={"#222"}
           mb={4}
           value={carNumberPlate}
-          fontFamily={"UKNumberPlate"}
           onChange={handleInputChange}
+          fontFamily={"UKNumberPlate"}
           border={"#3e3e3e 2px solid"}
           borderRadius={"4px"}
           backgroundColor={"#FDF035"}
