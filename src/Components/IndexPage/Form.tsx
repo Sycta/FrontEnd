@@ -80,7 +80,7 @@ const Form = () => {
         fontWeight={700}
         size={"xl"}
       >
-        Sell My Car 2 Ahmad.. It's easy
+        Sell My Car 2 Ahmad.. Its easy
       </Heading>
       <Text
         color="white"
