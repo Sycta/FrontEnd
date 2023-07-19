@@ -69,7 +69,8 @@ const Form = () => {
       background={"#00ADEF"}
       padding={"2"}
       width={"100%"}
-      alignItems="center"
+      justifyContent="center" // Center the content horizontally
+      alignItems="center" // Center the content vertically
       textAlign={"center"}
       height={"fit-content"}
       py={14}
@@ -77,14 +78,14 @@ const Form = () => {
       <Heading
         color="#1f2e5a"
         fontFamily="'M PLUS Rounded 1c', sans-serif"
-        fontWeight={700}
-        size={"xl"}
+        fontWeight={800}
+        size={"2xl"}
       >
         Sell My Car 2 Ahmad.. Its easy
       </Heading>
       <Text
         color="white"
-        fontSize={"xl"}
+        fontSize={"lg"}
         fontWeight={500}
         fontFamily="'M PLUS Rounded 1c', sans-serif"
       >
