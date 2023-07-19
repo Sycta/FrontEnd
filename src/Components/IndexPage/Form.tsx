@@ -99,12 +99,12 @@ const Form = () => {
           fontSize={"60px"}
           fontWeight={"bold"}
           textAlign={"center"}
-          alignContent={"center"}
           width={"100%"}
+          height={"80px"}
           maxW={"385px"}
-          py={10}
           maxLength={8}
           color={"#222"}
+          mb={4}
           value={carNumberPlate}
           fontFamily={"UKNumberPlate"}
           onChange={handleInputChange}
@@ -120,7 +120,7 @@ const Form = () => {
           fontWeight={"bold"}
           textAlign={"center"}
           width={"100%"}
-          py={8}
+          height={"60px"}
           maxW={"385px"}
           min={1}
           max={999999}
