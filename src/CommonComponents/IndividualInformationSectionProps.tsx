@@ -1,17 +1,15 @@
 import { Flex, Text, Heading, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 
-interface HighlightsSectionProps {
-  icon: IconType;
+interface IndividualInformationSectionProps {
+  icon?: IconType;
   heading: string;
   text: string;
 }
 
-const HighlightsSection: React.FC<HighlightsSectionProps> = ({
-  icon,
-  heading,
-  text,
-}) => {
+const IndividualInformationSection: React.FC<
+  IndividualInformationSectionProps
+> = ({ icon, heading, text }) => {
   return (
     <Flex
       width={"100%"}
@@ -23,7 +21,7 @@ const HighlightsSection: React.FC<HighlightsSectionProps> = ({
       alignItems={"center"}
       gap={2}
     >
-      <Icon as={icon} boxSize={10} color={"#1f2e5a"} />
+      {icon && <Icon as={icon} boxSize={10} color={"#1f2e5a"} />}
       <Heading
         color={"#00adef"}
         fontFamily="'M PLUS Rounded 1c', sans-serif"
@@ -40,4 +38,4 @@ const HighlightsSection: React.FC<HighlightsSectionProps> = ({
   );
 };
 
-export default HighlightsSection;
+export default IndividualInformationSection;

@@ -89,8 +89,8 @@ const Form = () => {
         fontWeight={500}
         fontFamily="'M PLUS Rounded 1c', sans-serif"
       >
-        A genuine offer to buy your car from your local trusted car <br />
-        buyer. Same day payment with no admin fees.
+        A genuine offer to buy your car from your local trusted car buyer.
+        <br /> Same day payment with no admin fees.
       </Text>
       <FormControl mt={8}>
         <FormLabel></FormLabel>

@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Box } from "@chakra-ui/react";
 import Form from "@/Components/IndexPage/Form";
 import Highlights from "@/Components/IndexPage/Highlights";
+import HowItWorks from "@/Components/IndexPage/HowItWorks";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Box backgroundColor="#EAEAEA" h="100vh" w="100%">
           <Form />
           <Highlights />
+          <HowItWorks />
         </Box>
       </main>
     </>

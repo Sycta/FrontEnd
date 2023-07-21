@@ -3,7 +3,7 @@ import { MdOutlineMoneyOffCsred } from "react-icons/md";
 import { IoMdCash } from "react-icons/io";
 import { GoVerified } from "react-icons/go";
 import { BsLightningFill } from "react-icons/bs";
-import HighlightsSection from "@/CommonComponents/HighlightsSection";
+import IndividualInformationSection from "@/CommonComponents/IndividualInformationSectionProps";
 
 const sections = [
   {
@@ -26,14 +26,7 @@ const sections = [
     heading: "Streamlined Process",
     text: "We streamline the car selling process to ensure a quick and efficient transaction.",
   },
-  // Add more sections as needed
 ];
-
-// sm: 480px
-// md: 768px
-// lg: 992px
-// xl: 1280px
-// 2xl: 1536px
 
 export default function Highlights() {
   return (
@@ -47,7 +40,7 @@ export default function Highlights() {
     >
       {sections.map((section, index) => {
         return (
-          <HighlightsSection
+          <IndividualInformationSection
             key={index}
             icon={section.icon}
             heading={section.heading}
