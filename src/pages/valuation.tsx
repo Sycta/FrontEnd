@@ -1,5 +1,5 @@
 import { Flex, Heading, Box, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import CarDetailsSection from "@/Components/ValuationPage/CarDetailsSection";
 import ValuationForm from "@/Components/ValuationPage/ValuationForm";
@@ -52,7 +52,8 @@ export default function Valuation() {
           alignItems="center" // Center the content vertically
           textAlign={"center"}
           height={"fit-content"}
-          py={14}
+          paddingTop={2}
+          paddingBottom={6}
         >
           <Heading
             color="#1f2e5a"
@@ -77,11 +78,15 @@ export default function Valuation() {
             carNumberPlate={carNumberPlate}
           />
           {parsedValuationData && (
-            <ValuationForm setShowValuation={setShowValuation} />
+            <ValuationForm
+              setShowValuation={setShowValuation}
+              showValuation={showValuation}
+            />
           )}
         </Flex>
-        {showValuation && (
+        {
           <Flex
+            hidden={!showValuation}
             direction={{
               base: "column",
               sm: "column",
@@ -134,7 +139,7 @@ export default function Valuation() {
               </Text>
             </Flex>
           </Flex>
-        )}
+        }
       </Box>
     </>
   );

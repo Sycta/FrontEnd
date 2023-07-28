@@ -9,8 +9,12 @@ export default function DetailsLabel({
 }) {
   return (
     <Stack dir="col" verticalAlign={"center"} gap={0}>
-      <Heading fontSize={"l"}>{heading}</Heading>
-      <Text fontSize={"sm"}>&nbsp;{text}</Text>
+      <Heading fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}>
+        {heading}
+      </Heading>
+      <Text fontSize={{ base: "xs", sm: "xs", md: "md", lg: "md" }}>
+        &nbsp;{text}
+      </Text>
     </Stack>
   );
 }

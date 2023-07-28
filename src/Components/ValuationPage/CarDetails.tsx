@@ -13,8 +13,8 @@ export default function CarDetails({
   return (
     <Box
       bg={"white"}
-      px={12}
-      py={8}
+      px={4}
+      py={4}
       borderRight={"2px solid #EAEAEA"}
       borderBottom={{
         base: "2px solid #EAEAEA",
@@ -25,14 +25,7 @@ export default function CarDetails({
       borderTopLeftRadius={{ base: 8, sm: 8, md: 8, lg: 8 }}
       w={"100%"}
     >
-      <Flex
-        direction={"column"}
-        gap={2}
-        textAlign={"left"}
-        h={"100%"}
-        px={2}
-        py={2}
-      >
+      <Flex direction={"column"} textAlign={"left"} h={"100%"} px={2} py={2}>
         <DetailsLabel
           heading="Manufacturer"
           text={parsedValuationData.manufacturer}
