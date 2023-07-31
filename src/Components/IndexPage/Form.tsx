@@ -41,8 +41,6 @@ const Form = () => {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          // Handle the response data here
-          console.log(data);
           setIsLoading(false);
           router.push({
             pathname: "/valuation",
@@ -54,8 +52,6 @@ const Form = () => {
           });
         })
         .catch((error) => {
-          // Handle any errors here
-          console.error(error);
           setIsLoading(false);
           setRequestError(true);
         });
