@@ -1,4 +1,4 @@
-import { Flex, Box, Heading, Stack, Text, Image } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import DetailsLabel from "./DetailLabel";
 
 export default function CarDetails({

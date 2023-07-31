@@ -1,4 +1,4 @@
-import { Text, Heading, Box, Flex, Stack, HStack } from "@chakra-ui/react";
+import { Text, Heading, Stack } from "@chakra-ui/react";
 
 export default function DetailsLabel({
   heading,
