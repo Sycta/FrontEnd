@@ -3,7 +3,7 @@ import { Flex, Box, Heading, Text } from "@chakra-ui/react";
 import ValuationConfirmationForm from "@/Components/ValuationConfirmation/ValuationConfirmationForm";
 import CarDetails from "@/Components/ValuationPage/CarDetails";
 
-export default function valuationConfirmation() {
+export default function ValuationConfirmation() {
   const router = useRouter();
 
   const {
