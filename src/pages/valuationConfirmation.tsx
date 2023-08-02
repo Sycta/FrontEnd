@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { Flex, Box, Heading } from "@chakra-ui/react";
-import ValuationConfirmationForm from "@/Components/ValuationConfirmation/ValuationConfirmationForm";
+import ValuationConfirmationForm from "@/Components/ValuationConfirmation/valuationConfirmationForm";
 
 export default function ValuationConfirmation() {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
-import CarDetails from "./CarDetails";
-import CarImage from "./CarImage";
+import CarDetails from "./carDetails";
+import CarImage from "./carImage";
 
 export default function CarDetailsSection({
   parsedValuationData,

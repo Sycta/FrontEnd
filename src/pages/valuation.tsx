@@ -1,7 +1,7 @@
 import { Flex, Heading, Box, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import CarDetailsSection from "@/Components/ValuationPage/CarDetailsSection";
-import ValuationForm from "@/Components/ValuationPage/ValuationForm";
+import CarDetailsSection from "@/Components/ValuationPage/carDetailsSection";
+import ValuationForm from "@/Components/ValuationPage/valuationForm";
 
 export default function Valuation() {
   const router = useRouter();
