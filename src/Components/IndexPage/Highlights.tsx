@@ -1,8 +1,9 @@
 import { Flex } from "@chakra-ui/react";
 import { MdOutlineMoneyOffCsred } from "react-icons/md";
-import { IoMdCash } from "react-icons/io";
+import { IoMdCash, IoMdLock, IoMdCar } from "react-icons/io";
 import { GoVerified } from "react-icons/go";
-import { BsLightningFill } from "react-icons/bs";
+import { BsLightningFill, BsBank, BsFillLockFill } from "react-icons/bs";
+
 import IndividualInformationSection from "@/CommonComponents/IndividualInformationSectionProps";
 
 const sections = [
@@ -26,6 +27,21 @@ const sections = [
     heading: "Streamlined Process",
     text: "We streamline the car selling process to ensure a quick and efficient transaction.",
   },
+  {
+    icon: BsBank,
+    heading: "We Settle Finance",
+    text: "any outstanding finance can be settled by our team.",
+  },
+  {
+    icon: IoMdLock,
+    heading: "Priced In",
+    text: "Your instant car valuation is locked in for 7 days so you can book an appointment slot which suits you best.",
+  },
+  {
+    icon: IoMdCar,
+    heading: "All Cars Purchased",
+    text: "We purchase all cars even including non-runners, insurance write-offs, scrap cars and more.",
+  },
 ];
 
 export default function Highlights() {
@@ -34,9 +50,11 @@ export default function Highlights() {
       direction={{ base: "column", sm: "column", md: "row", lg: "row" }}
       width={"100%"}
       background={"white"}
-      px={{ base: 2, sm: 4, md: 12, lg: 32 }}
-      py={12}
+      px={{ base: 2, sm: 4, md: 8, lg: 16 }}
+      py={4}
       gap={4}
+      flexWrap={"wrap"}
+      justifyContent={"center"}
     >
       {sections.map((section, index) => {
         return (

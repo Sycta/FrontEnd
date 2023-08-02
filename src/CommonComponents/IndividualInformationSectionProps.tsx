@@ -12,7 +12,7 @@ const IndividualInformationSection: React.FC<
 > = ({ icon, heading, text }) => {
   return (
     <Flex
-      width={"100%"}
+      width={{ base: "100%", sm: "100%", md: "30%", lg: "20%" }}
       justifyContent={"center"}
       px={{ base: 4, sm: 4, md: 4, lg: 6 }}
       py={{ base: 2, sm: 2, md: 6, lg: 6 }}

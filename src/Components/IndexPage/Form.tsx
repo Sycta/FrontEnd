@@ -7,7 +7,8 @@ import {
   FormLabel,
   Button,
   Text,
-  Heading,
+  Image,
+  Box,
 } from "@chakra-ui/react";
 
 const Form = () => {
@@ -61,7 +62,7 @@ const Form = () => {
   return (
     <Flex
       direction="column"
-      gap={4}
+      gap={2}
       background={"#00ADEF"}
       padding={"2"}
       width={"100%"}
@@ -69,26 +70,19 @@ const Form = () => {
       alignItems="center" // Center the content vertically
       textAlign={"center"}
       height={"fit-content"}
-      py={14}
+      py={10}
     >
-      <Heading
-        color="#1f2e5a"
-        fontFamily="'M PLUS Rounded 1c', sans-serif"
-        fontWeight={800}
-        size={"2xl"}
-      >
-        Sell My Car 2 Ahmad.. Its easy
-      </Heading>
+      <Image src="/Logo.png" alt="Sycta - The easy way to sell your car" />
       <Text
         color="white"
         fontSize={"lg"}
-        fontWeight={500}
+        fontWeight={400}
         fontFamily="'M PLUS Rounded 1c', sans-serif"
       >
-        A genuine offer to buy your car from your local trusted car buyer.
+        Receive an instant valuation from your local trusted car buyer.
         <br /> Same day payment with no admin fees.
       </Text>
-      <FormControl mt={8}>
+      <FormControl mt={4}>
         <FormLabel></FormLabel>
         <Input
           type="text"

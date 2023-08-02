@@ -41,7 +41,7 @@ export default function HowItWorks() {
       <Flex
         direction={{ base: "column", sm: "column", md: "row", lg: "row" }}
         background={"white"}
-        py={12}
+        py={4}
         gap={4}
         justifyContent={"center"}
       >
