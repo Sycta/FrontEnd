@@ -1,5 +1,5 @@
 import { Flex, Box } from "@chakra-ui/react";
-import DetailsLabel from "./DetailLabel";
+import DetailsLabel from "./detailLabel";
 
 export default function CarDetails({
   parsedValuationData,
