@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { Box } from "@chakra-ui/react";
-import Form from "@/Components/IndexPage/form";
-import Highlights from "@/Components/IndexPage/highlights";
-import HowItWorks from "@/Components/IndexPage/howItWorks";
+import Form from "../Components/IndexPage/form";
+import Highlights from "../Components/IndexPage/highlights";
+import HowItWorks from "../Components/IndexPage/howItWorks";
 
 export default function Home() {
   return (
