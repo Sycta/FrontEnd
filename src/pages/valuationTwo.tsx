@@ -111,8 +111,12 @@ export default function MyDetails() {
             Assumptions we have made for your valuation:
           </Heading>
 
-          {listOfAssumptions.map((assumption) => {
-            return <Text fontSize={"sm"}>&emsp;- {assumption}</Text>;
+          {listOfAssumptions.map((assumption, index) => {
+            return (
+              <Text fontSize={"sm"} key={index}>
+                &emsp;- {assumption}
+              </Text>
+            );
           })}
           <Heading
             color="#1f2e5a"
