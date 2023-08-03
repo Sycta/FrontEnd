@@ -94,7 +94,7 @@ export default function MyDetails() {
           <Heading
             color="#1f2e5a"
             fontFamily={"Outfit, sans serif"}
-            size={"2xl"}
+            size={"xl"}
           >
             Your Details
           </Heading>
@@ -105,7 +105,7 @@ export default function MyDetails() {
           </Box>
         </Flex>
         <form onSubmit={handleSubmit}>
-          <Flex direction="column" gap={4} py={4} px={4}>
+          <Flex direction="column" gap={4} py={4}>
             <FormControl>
               <FormLabel mb={2}>Full Name *</FormLabel>
               <InputGroup>
@@ -113,8 +113,6 @@ export default function MyDetails() {
                   value={fullName}
                   placeholder="Enter Full Name"
                   onChange={(e) => setFullName(e.target.value)}
-                  py={6}
-                  px={4}
                   type="text"
                 />
                 <InputRightElement pointerEvents="none">
@@ -129,8 +127,6 @@ export default function MyDetails() {
                 <Input
                   placeholder="Enter Email Address"
                   value={email}
-                  py={6}
-                  px={4}
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -146,8 +142,6 @@ export default function MyDetails() {
                 <Input
                   placeholder="Enter Your Phone Number"
                   value={contactNumber}
-                  py={6}
-                  px={4}
                   onChange={(e) => setContactNumber(e.target.value)}
                 />
                 <InputRightElement pointerEvents="none">
@@ -162,8 +156,6 @@ export default function MyDetails() {
                 <Input
                   placeholder="Enter Your Postcode"
                   value={postCode}
-                  py={6}
-                  px={4}
                   onChange={(e) => setPostCode(e.target.value)}
                 />
                 <InputRightElement pointerEvents="none">
@@ -179,6 +171,16 @@ export default function MyDetails() {
               color={"white"}
               textAlign={"center"}
               p={6}
+              onClick={() => {
+                router.push({
+                  pathname: "/valuationTwo",
+                  query: {
+                    carNumberPlate,
+                    carMileage,
+                    valuationData: valuationData,
+                  },
+                });
+              }}
               _hover={{
                 background: "#1f2e5a",
               }}

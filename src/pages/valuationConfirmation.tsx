@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import { Flex, Box, Heading, Text, Button, Image } from "@chakra-ui/react";
+import { Flex, Box, Heading, Text, Button, IconButton } from "@chakra-ui/react";
+import { ChevronLeftIcon } from "@chakra-ui/icons";
 import CarImage from "@/Components/ValuationPage/carImage";
 import IndividualCarDetails from "@/Components/ValuationPage/individualCarDetails";
 
@@ -41,6 +42,18 @@ export default function ValuationConfirmation() {
           justifyContent="center"
           height={"fit-content"}
         >
+          <Flex dir="row" alignItems="center" gap={1}>
+            <IconButton
+              icon={<ChevronLeftIcon boxSize={6} />}
+              aria-label="Back logo"
+              onClick={() => {
+                router.push({
+                  pathname: "/",
+                });
+              }}
+            />
+            <Text>Back</Text>
+          </Flex>
           <Flex
             direction={"row"}
             justify={"space-between"}
@@ -49,7 +62,7 @@ export default function ValuationConfirmation() {
             <Heading
               color="#1f2e5a"
               fontFamily={"Outfit, sans serif"}
-              size={"2xl"}
+              size={"xl"}
             >
               Your Car
             </Heading>
