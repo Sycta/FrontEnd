@@ -8,11 +8,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Sell My Car 2 Ahmad</title>
-        <meta
-          name="description"
-          content="Value your own car now. Best prices guaranteed."
-        />
+        <title>Sycta</title>
+        <meta name="description" content="The easy way to sell your car." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

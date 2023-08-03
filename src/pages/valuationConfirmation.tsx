@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
-import { Flex, Box, Heading } from "@chakra-ui/react";
-import ValuationConfirmationForm from "@/Components/ValuationConfirmation/valuationConfirmationForm";
+import { Flex, Box, Heading, Text, Button, Image } from "@chakra-ui/react";
+import CarImage from "@/Components/ValuationPage/carImage";
+import IndividualCarDetails from "@/Components/ValuationPage/individualCarDetails";
 
 export default function ValuationConfirmation() {
   const router = useRouter();
@@ -30,32 +31,113 @@ export default function ValuationConfirmation() {
 
   return (
     <>
-      <Box backgroundColor="#00ADEF" minH="100vh" w="100%">
+      <Box backgroundColor="" minH="100vh" w="100%">
         <Flex
           direction="column"
           gap={4}
-          background={"#00ADEF"}
+          background={"white"}
           width={"100%"}
           p={6}
-          justifyContent="center" // Center the content horizontally
-          alignItems="center" // Center the content vertically
-          textAlign={"center"}
+          justifyContent="center"
           height={"fit-content"}
         >
-          <Heading
-            color="#1f2e5a"
-            fontFamily="'M PLUS Rounded 1c', sans-serif"
-            fontWeight={800}
-            size={"2xl"}
+          <Flex
+            direction={"row"}
+            justify={"space-between"}
+            alignItems={"center"}
           >
-            Car Valuation
-          </Heading>
-          <ValuationConfirmationForm
-            improvedPrice={improvedPrice}
-            originalPrice={parsedValuationData.price}
-            carDetails={parsedValuationData}
-            carNumberPlate={carNumberPlate}
-          />
+            <Heading
+              color="#1f2e5a"
+              fontFamily={"Outfit, sans serif"}
+              size={"2xl"}
+            >
+              Your Car
+            </Heading>
+            <Box bg={"#1f2e5a"} px={4} py={2} borderRadius={"full"}>
+              <Text fontSize={"xs"} color={"white"}>
+                STEP 1 OF 3
+              </Text>
+            </Box>
+          </Flex>
+          <CarImage pictureSource={parsedValuationData.pictureSource} />
+
+          <Box>
+            <Heading
+              color="#1f2e5a"
+              fontFamily={"Outfit, sans serif"}
+              size={"xl"}
+            >
+              {carNumberPlate}
+            </Heading>
+            <Text fontSize={"xl"} fontWeight={500}>
+              {parsedValuationData.manufacturer}
+            </Text>
+            <Text fontSize={"xl"} fontWeight={500}>
+              {parsedValuationData.model}
+            </Text>
+          </Box>
+          <Flex dir="row" justify="space-between" wrap={"wrap"}>
+            <IndividualCarDetails
+              heading={"year"}
+              value={parsedValuationData.year}
+            />
+            <IndividualCarDetails
+              heading={"Colour"}
+              value={parsedValuationData.colour}
+            />
+            <IndividualCarDetails
+              heading={"Transmission"}
+              value={parsedValuationData.transmission}
+            />
+            <IndividualCarDetails
+              heading={"Engine Size"}
+              value={parsedValuationData.engineSize}
+            />
+            <IndividualCarDetails
+              heading={"First Registered"}
+              value={parsedValuationData.firstRegistered}
+            />
+            <IndividualCarDetails heading={"Mileage"} value={carMileage} />
+          </Flex>
+          <Button
+            fontFamily={"Outfit, sans serif"}
+            type="submit"
+            background={"#464646"}
+            color={"white"}
+            textAlign={"center"}
+            p={6}
+            _hover={{
+              background: "#464646",
+            }}
+            onClick={() => {
+              router.push("/");
+            }}
+          >
+            NOT MY CAR
+          </Button>
+          <Button
+            fontFamily={"Outfit, sans serif"}
+            type="submit"
+            background={"#1f2e5a"}
+            onClick={() => {
+              router.push({
+                pathname: "/myDetails",
+                query: {
+                  carNumberPlate,
+                  carMileage,
+                  valuationData: valuationData,
+                },
+              });
+            }}
+            color={"white"}
+            textAlign={"center"}
+            p={6}
+            _hover={{
+              background: "#1f2e5a",
+            }}
+          >
+            STEP 2 : MY DETAILS
+          </Button>
         </Flex>
       </Box>
     </>

@@ -44,7 +44,7 @@ const Form = () => {
         .then((data) => {
           setIsLoading(false);
           router.push({
-            pathname: "/valuation",
+            pathname: "/valuationConfirmation",
             query: {
               carNumberPlate,
               carMileage,
