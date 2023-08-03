@@ -143,7 +143,7 @@ export default function MyDetails() {
                   placeholder="Enter Your Phone Number"
                   value={contactNumber}
                   onChange={(e) => setContactNumber(e.target.value)}
-                  type="number"
+                  type="tel"
                 />
                 <InputRightElement pointerEvents="none">
                   <Icon as={MdPhoneAndroid} />
