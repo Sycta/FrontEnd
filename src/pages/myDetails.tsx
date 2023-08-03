@@ -122,7 +122,7 @@ export default function MyDetails() {
             </FormControl>
 
             <FormControl>
-              <FormLabel mb={2}>Email</FormLabel>
+              <FormLabel mb={2}>Email *</FormLabel>
               <InputGroup>
                 <Input
                   placeholder="Enter Email Address"
@@ -137,12 +137,13 @@ export default function MyDetails() {
             </FormControl>
 
             <FormControl>
-              <FormLabel mb={2}>Contact Number</FormLabel>
+              <FormLabel mb={2}>Contact Number *</FormLabel>
               <InputGroup>
                 <Input
                   placeholder="Enter Your Phone Number"
                   value={contactNumber}
                   onChange={(e) => setContactNumber(e.target.value)}
+                  type="number"
                 />
                 <InputRightElement pointerEvents="none">
                   <Icon as={MdPhoneAndroid} />
@@ -154,6 +155,7 @@ export default function MyDetails() {
               <FormLabel mb={2}>Post Code</FormLabel>
               <InputGroup>
                 <Input
+                  type="text"
                   placeholder="Enter Your Postcode"
                   value={postCode}
                   onChange={(e) => setPostCode(e.target.value)}
