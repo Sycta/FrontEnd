@@ -56,7 +56,18 @@ export default function ValuationConfirmation() {
           </Flex>
           <Flex
             direction={"row"}
-            justify={"space-between"}
+            justify={{
+              base: "space-between",
+              sm: "space-between",
+              md: "flex-start",
+              lg: "flex-start",
+            }}
+            gap={{
+              base: 0,
+              sm: 0,
+              md: 4,
+              lg: 4,
+            }}
             alignItems={"center"}
           >
             <Heading
@@ -72,85 +83,87 @@ export default function ValuationConfirmation() {
               </Text>
             </Box>
           </Flex>
-          <CarImage pictureSource={parsedValuationData.pictureSource} />
 
-          <Box>
-            <Heading
-              color="#1f2e5a"
+          <Flex direction={"column"} gap={2}>
+            <CarImage pictureSource={parsedValuationData.pictureSource} />
+            <Box>
+              <Heading
+                color="#1f2e5a"
+                fontFamily={"Outfit, sans serif"}
+                size={"xl"}
+              >
+                {carNumberPlate}
+              </Heading>
+              <Text fontSize={"xl"} fontWeight={500}>
+                {parsedValuationData.manufacturer}
+              </Text>
+              <Text fontSize={"xl"} fontWeight={500}>
+                {parsedValuationData.model}
+              </Text>
+            </Box>
+            <Flex dir="row" justify="space-between" wrap={"wrap"}>
+              <IndividualCarDetails
+                heading={"year"}
+                value={parsedValuationData.year}
+              />
+              <IndividualCarDetails
+                heading={"Colour"}
+                value={parsedValuationData.colour}
+              />
+              <IndividualCarDetails
+                heading={"Transmission"}
+                value={parsedValuationData.transmission}
+              />
+              <IndividualCarDetails
+                heading={"Engine Size"}
+                value={parsedValuationData.engineSize}
+              />
+              <IndividualCarDetails
+                heading={"First Registered"}
+                value={parsedValuationData.firstRegistered}
+              />
+              <IndividualCarDetails heading={"Mileage"} value={carMileage} />
+            </Flex>
+            <Button
               fontFamily={"Outfit, sans serif"}
-              size={"xl"}
+              type="submit"
+              background={"#464646"}
+              color={"white"}
+              textAlign={"center"}
+              p={6}
+              _hover={{
+                background: "#464646",
+              }}
+              onClick={() => {
+                router.push("/");
+              }}
             >
-              {carNumberPlate}
-            </Heading>
-            <Text fontSize={"xl"} fontWeight={500}>
-              {parsedValuationData.manufacturer}
-            </Text>
-            <Text fontSize={"xl"} fontWeight={500}>
-              {parsedValuationData.model}
-            </Text>
-          </Box>
-          <Flex dir="row" justify="space-between" wrap={"wrap"}>
-            <IndividualCarDetails
-              heading={"year"}
-              value={parsedValuationData.year}
-            />
-            <IndividualCarDetails
-              heading={"Colour"}
-              value={parsedValuationData.colour}
-            />
-            <IndividualCarDetails
-              heading={"Transmission"}
-              value={parsedValuationData.transmission}
-            />
-            <IndividualCarDetails
-              heading={"Engine Size"}
-              value={parsedValuationData.engineSize}
-            />
-            <IndividualCarDetails
-              heading={"First Registered"}
-              value={parsedValuationData.firstRegistered}
-            />
-            <IndividualCarDetails heading={"Mileage"} value={carMileage} />
+              NOT MY CAR
+            </Button>
+            <Button
+              fontFamily={"Outfit, sans serif"}
+              type="submit"
+              background={"#1f2e5a"}
+              onClick={() => {
+                router.push({
+                  pathname: "/myDetails",
+                  query: {
+                    carNumberPlate,
+                    carMileage,
+                    valuationData: valuationData,
+                  },
+                });
+              }}
+              color={"white"}
+              textAlign={"center"}
+              p={6}
+              _hover={{
+                background: "#1f2e5a",
+              }}
+            >
+              STEP 2 : MY DETAILS
+            </Button>
           </Flex>
-          <Button
-            fontFamily={"Outfit, sans serif"}
-            type="submit"
-            background={"#464646"}
-            color={"white"}
-            textAlign={"center"}
-            p={6}
-            _hover={{
-              background: "#464646",
-            }}
-            onClick={() => {
-              router.push("/");
-            }}
-          >
-            NOT MY CAR
-          </Button>
-          <Button
-            fontFamily={"Outfit, sans serif"}
-            type="submit"
-            background={"#1f2e5a"}
-            onClick={() => {
-              router.push({
-                pathname: "/myDetails",
-                query: {
-                  carNumberPlate,
-                  carMileage,
-                  valuationData: valuationData,
-                },
-              });
-            }}
-            color={"white"}
-            textAlign={"center"}
-            p={6}
-            _hover={{
-              background: "#1f2e5a",
-            }}
-          >
-            STEP 2 : MY DETAILS
-          </Button>
         </Flex>
       </Box>
     </>
