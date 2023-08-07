@@ -84,8 +84,9 @@ export default function ValuationConfirmation() {
             </Box>
           </Flex>
 
-          <Flex direction={"column"} gap={2}>
+          <Flex direction={{base: "column", sm: "column", md: "column", lg: "row"}} gap={2} px={{base: 0, sm: 0, md: 36, lg: 36}}>
             <CarImage pictureSource={parsedValuationData.pictureSource} />
+            <Flex direction={"column"}>
             <Box>
               <Heading
                 color="#1f2e5a"
@@ -101,7 +102,7 @@ export default function ValuationConfirmation() {
                 {parsedValuationData.model}
               </Text>
             </Box>
-            <Flex dir="row" justify="space-between" wrap={"wrap"}>
+            <Flex dir="row" wrap={"wrap"}>
               <IndividualCarDetails
                 heading={"year"}
                 value={parsedValuationData.year}
@@ -124,7 +125,15 @@ export default function ValuationConfirmation() {
               />
               <IndividualCarDetails heading={"Mileage"} value={carMileage} />
             </Flex>
-            <Button
+            </Flex>
+          </Flex>
+
+          <Flex 
+            justify={"center"}
+            gap={4}
+            direction={{base: "column", sm: "column", md: "column", lg: "row"}}
+            >
+          <Button
               fontFamily={"Outfit, sans serif"}
               type="submit"
               background={"#464646"}
@@ -163,7 +172,7 @@ export default function ValuationConfirmation() {
             >
               STEP 2 : MY DETAILS
             </Button>
-          </Flex>
+            </Flex>
         </Flex>
       </Box>
     </>

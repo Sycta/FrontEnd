@@ -12,7 +12,7 @@ import {
   InputRightElement,
   Icon,
   IconButton,
-  Image,
+  Textarea
 } from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
@@ -51,6 +51,7 @@ export default function MyDetails() {
   const [email, setEmail] = useState("");
   const [contactNumber, setContactNumber] = useState("");
   const [postCode, setPostCode] = useState("");
+  const [query, setQuery] = useState("");
 
   // Function to handle form submission
   const handleSubmit = (e: any) => {
@@ -60,6 +61,7 @@ export default function MyDetails() {
     console.log("Email:", email);
     console.log("Contact Number:", contactNumber);
     console.log("Post Code:", postCode);
+    console.log("Query:", query);
   };
 
   return (
@@ -90,23 +92,46 @@ export default function MyDetails() {
           />
           <Text>Back</Text>
         </Flex>
-        <Flex direction={"row"} justify={"space-between"} alignItems={"center"}>
-          <Heading
-            color="#1f2e5a"
-            fontFamily={"Outfit, sans serif"}
-            size={"xl"}
+
+        <Flex
+            direction={"row"}
+            justify={{
+              base: "space-between",
+              sm: "space-between",
+              md: "flex-start",
+              lg: "flex-start",
+            }}
+            gap={{
+              base: 0,
+              sm: 0,
+              md: 4,
+              lg: 4,
+            }}
+            alignItems={"center"}
           >
-            Your Details
-          </Heading>
-          <Box bg={"#1f2e5a"} px={4} py={2} borderRadius={"full"}>
-            <Text fontSize={"xs"} color={"white"}>
-              STEP 2 OF 3
-            </Text>
-          </Box>
-        </Flex>
+            <Heading
+              color="#1f2e5a"
+              fontFamily={"Outfit, sans serif"}
+              size={"xl"}
+            >
+              Your Details
+            </Heading>
+            <Box bg={"#1f2e5a"} px={4} py={2} borderRadius={"full"}>
+              <Text fontSize={"xs"} color={"white"}>
+                STEP 2 OF 3
+              </Text>
+            </Box>
+          </Flex>
+
         <form onSubmit={handleSubmit}>
-          <Flex direction="column" gap={4} py={4}>
-            <FormControl>
+          <Flex 
+            direction={{base: "column", sm: "column", md: "row", lg: "row"}} 
+            gap={4} 
+            py={4}
+            justify={"center"} 
+            wrap={"wrap"}
+            px={2}>
+            <FormControl width={{base: "100%", sm: "100%", md: "45%", lg: "45%"}}>
               <FormLabel mb={2}>Full Name *</FormLabel>
               <InputGroup>
                 <Input
@@ -121,7 +146,7 @@ export default function MyDetails() {
               </InputGroup>
             </FormControl>
 
-            <FormControl>
+            <FormControl width={{base: "100%", sm: "100%", md: "45%", lg: "45%"}}>
               <FormLabel mb={2}>Email *</FormLabel>
               <InputGroup>
                 <Input
@@ -136,7 +161,7 @@ export default function MyDetails() {
               </InputGroup>
             </FormControl>
 
-            <FormControl>
+            <FormControl width={{base: "100%", sm: "100%", md: "45%", lg: "45%"}}>
               <FormLabel mb={2}>Contact Number *</FormLabel>
               <InputGroup>
                 <Input
@@ -151,7 +176,7 @@ export default function MyDetails() {
               </InputGroup>
             </FormControl>
 
-            <FormControl>
+            <FormControl width={{base: "100%", sm: "100%", md: "45%", lg: "45%"}}>
               <FormLabel mb={2}>Post Code</FormLabel>
               <InputGroup>
                 <Input
@@ -166,12 +191,26 @@ export default function MyDetails() {
               </InputGroup>
             </FormControl>
 
+
+            <FormControl width={{base: "100%", sm: "100%", md: "90%", lg: "91%"}}>
+              <FormLabel mb={2}>Extra Details</FormLabel>
+              <InputGroup>
+                <Textarea
+                  placeholder="Please enter any extra details"
+                  h={"125px"}
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+              </InputGroup>
+            </FormControl>
+            
             <Button
               fontFamily={"Outfit, sans serif"}
               type="submit"
               background={"#1f2e5a"}
               color={"white"}
               textAlign={"center"}
+              w={{base: "100%", sm: "100%", md: "25%", lg: "25%"}}
               p={6}
               onClick={() => {
                 router.push({
@@ -190,6 +229,7 @@ export default function MyDetails() {
               Submit
             </Button>
           </Flex>
+
         </form>
       </Flex>
     </Box>

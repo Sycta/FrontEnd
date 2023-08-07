@@ -63,20 +63,38 @@ export default function MyDetails() {
           />
           <Text>Back</Text>
         </Flex>
-        <Flex direction={"row"} justify={"space-between"} alignItems={"center"}>
-          <Heading
-            color="#1f2e5a"
-            fontFamily={"Outfit, sans serif"}
-            size={"xl"}
+
+        <Flex
+            direction={"row"}
+            justify={{
+              base: "space-between",
+              sm: "space-between",
+              md: "flex-start",
+              lg: "flex-start",
+            }}
+            gap={{
+              base: 0,
+              sm: 0,
+              md: 4,
+              lg: 4,
+            }}
+            alignItems={"center"}
           >
-            Your Valuation
-          </Heading>
-          <Box bg={"#1f2e5a"} px={4} py={2} borderRadius={"full"}>
-            <Text fontSize={"xs"} color={"white"}>
-              STEP 3 OF 3
-            </Text>
-          </Box>
-        </Flex>
+            <Heading
+              color="#1f2e5a"
+              fontFamily={"Outfit, sans serif"}
+              size={"xl"}
+            >
+              Your Valuation
+            </Heading>
+            <Box bg={"#1f2e5a"} px={4} py={2} borderRadius={"full"}>
+              <Text fontSize={"xs"} color={"white"}>
+                STEP 3 OF 3
+              </Text>
+            </Box>
+          </Flex>
+
+
         <Flex direction={"column"}>
           <Heading
             color="#1f2e5a"
