@@ -2,7 +2,8 @@ import Head from "next/head";
 import { Box } from "@chakra-ui/react";
 import Form from "../Components/IndexPage/form";
 import Highlights from "../Components/IndexPage/highlights";
-import HowItWorks from "../Components/IndexPage/howItWorks";
+import HowItWorks from "../Components/HowItWorks/howItWorksSection";
+import Navigation from "@/CommonComponents/Navbar";
 
 export default function Home() {
   return (
@@ -14,10 +15,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Box backgroundColor="#EAEAEA" h="100vh" w="100%">
+        <Navigation />
+        <Box h="100vh" w="100%">
           <Form />
+          <hr color="#EAEAEA" style={{ height: "2px" }} />
           <Highlights />
-          <HowItWorks />
         </Box>
       </main>
     </>

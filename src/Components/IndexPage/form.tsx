@@ -63,7 +63,7 @@ const Form = () => {
     <Flex
       direction="column"
       gap={2}
-      background={"#00ADEF"}
+      background={"#FFF"}
       padding={"2"}
       width={"100%"}
       justifyContent="center" // Center the content horizontally
@@ -74,9 +74,9 @@ const Form = () => {
     >
       <Image src="/Logo.png" alt="Sycta - The easy way to sell your car" />
       <Text
-        color="white"
+        color="#000"
         fontSize={"lg"}
-        fontWeight={400}
+        fontWeight={600}
         fontFamily="'M PLUS Rounded 1c', sans-serif"
       >
         Receive an instant valuation from your local trusted car buyer.
