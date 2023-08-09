@@ -44,12 +44,19 @@ export default function HowItWorksSection() {
         px={{ base: 0, sm: 0, md: 18, lg: 36 }}
       >
         With over 15 years experience in the industry, SYCTA understands the
-        difficulties surrounding selling your used car. We make it easy with a
-        free instant valuation and same day payment following inspection. We
-        care about our customers and provide a fair valuation without over
-        inflating to tempt you into approaching us. Our appraisals are holistic
-        and take into consideration age and mileage of your used car. Here at
-        SYCTA we want you to achieve the best price possible for your used car.
+        difficulties surrounding selling your used car.
+        {<br />}
+        We make it easy with a free instant valuation and same day payment
+        following inspection.
+        {<br />}
+        We care about our customers and provide a fair valuation without over
+        inflating to tempt you into approaching us.
+        {<br />}
+        Our appraisals are holistic and take into consideration age and mileage
+        of your used car.
+        {<br />}
+        Here at SYCTA we want you to achieve the best price possible for your
+        used car.
       </Text>
       <hr color="#EAEAEA" style={{ height: "2px", marginTop: "1rem" }} />
       <Flex
@@ -75,6 +82,7 @@ export default function HowItWorksSection() {
         fontFamily={"Outfit, sans serif"}
         fontWeight={800}
         size={"md"}
+        mb={12}
       >
         It really is easy as 1, 2, 3.
       </Heading>

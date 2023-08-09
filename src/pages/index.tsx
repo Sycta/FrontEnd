@@ -18,9 +18,21 @@ export default function Home() {
       <main>
         <Flex h="100vh" w="100%" direction="column">
           <Navigation />
-          <Form />
-          <hr color="#EAEAEA" style={{ height: "2px" }} />
-          <Highlights />
+          <Flex
+            w="100%"
+            direction={"column"}
+            px={{ base: 2, sm: 4, md: 12, lg: 32 }}
+            background={"white"}
+            textAlign={"center"}
+          >
+            <Form />
+            <hr color="#EAEAEA" style={{ height: "0px", marginTop: "1rem" }} />
+            <hr
+              color="#EAEAEA"
+              style={{ height: "0px", marginBottom: "1rem" }}
+            />
+            <Highlights />
+          </Flex>
           <Footer />
         </Flex>
       </main>

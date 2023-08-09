@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 import { MdOutlineMoneyOffCsred } from "react-icons/md";
 import { IoMdCash, IoMdLock, IoMdCar } from "react-icons/io";
 import { GoVerified } from "react-icons/go";
@@ -55,6 +55,7 @@ export default function Highlights() {
       gap={4}
       flexWrap={"wrap"}
       justifyContent={"center"}
+      mb={12}
     >
       {sections.map((section, index) => {
         return (
