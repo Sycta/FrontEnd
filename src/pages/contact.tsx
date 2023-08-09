@@ -1,21 +1,20 @@
-import { useState } from "react"; // Import useState hook to handle form state
+import Navigation from "@/CommonComponents/Navbar";
+import Footer from "@/CommonComponents/footer";
 import {
+  Box,
   Flex,
   Heading,
-  Box,
   Text,
   FormControl,
   FormLabel,
-  Input,
-  Button,
   InputGroup,
-  InputRightElement,
+  Input,
   Icon,
-  IconButton,
+  InputRightElement,
   Textarea,
+  Button,
 } from "@chakra-ui/react";
-import { ChevronLeftIcon } from "@chakra-ui/icons";
-import { useRouter } from "next/router";
+import { useState } from "react";
 import {
   MdPerson,
   MdMail,
@@ -23,29 +22,7 @@ import {
   MdLocationPin,
 } from "react-icons/md";
 
-export default function MyDetails() {
-  const router = useRouter();
-
-  const {
-    query: { carNumberPlate, carMileage, valuationData },
-  } = router;
-
-  let parsedValuationData = {
-    manufacturer: "",
-    model: "",
-    year: 0,
-    colour: "",
-    transmission: "",
-    engineSize: 0,
-    firstRegistered: "",
-    price: 0,
-    pictureSource: "",
-  };
-
-  if (valuationData) {
-    parsedValuationData = JSON.parse(valuationData as string);
-  }
-
+export default function contact() {
   // State variables for form inputs
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -53,11 +30,21 @@ export default function MyDetails() {
   const [postCode, setPostCode] = useState("");
   const [query, setQuery] = useState("");
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [requestError, setRequestError] = useState(false);
+  const [requestSuccess, setRequestSuccess] = useState(false);
+  const [inputError, setInputError] = useState(false);
+
   // Function to handle form submission
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    setRequestError(false);
+    setInputError(false);
+    setRequestSuccess(false);
 
-    if (fullName && email && contactNumber) {
+    if (fullName && email && contactNumber && query) {
+      setIsLoading(true);
+
       let baseUrl;
       if (process.env.NODE_ENV === "development") {
         baseUrl = "http://localhost:8080";
@@ -68,13 +55,12 @@ export default function MyDetails() {
       const url = `${baseUrl}/api/v1/email`;
 
       const bodyContent = JSON.stringify({
-        carDetails: parsedValuationData,
+        carDetails: null,
         fullName,
         email,
         contactNumber,
         postCode,
         query,
-        carNumberPlate,
       });
 
       fetch(url, {
@@ -85,70 +71,96 @@ export default function MyDetails() {
         },
       })
         .then((response) => response.json())
-        .then((data) => {})
-        .catch((error) => {});
+        .then((data) => {
+          console.log(data);
+
+          if (data.status != "OK") {
+            setIsLoading(false);
+            setRequestError(true);
+            setRequestSuccess(false);
+          } else {
+            setIsLoading(false);
+            setRequestSuccess(true);
+            setRequestError(false);
+          }
+        });
+    } else {
+      setRequestError(false);
+      setRequestSuccess(false);
+      setInputError(true);
     }
   };
 
   return (
-    <Box backgroundColor="" minH="100vh" w="100%">
-      <Flex
-        direction="column"
-        gap={4}
-        background={"white"}
+    <Flex h="100vh" w="100%" direction={"column"}>
+      <Navigation />
+      <Box
         width={"100%"}
-        p={6}
-        justifyContent="center"
-        height={"fit-content"}
+        px={{ base: 2, sm: 4, md: 12, lg: 32 }}
+        background={"white"}
+        textAlign={"center"}
       >
-        <Flex dir="row" alignItems="center" gap={1}>
-          <IconButton
-            icon={<ChevronLeftIcon boxSize={6} />}
-            aria-label="Back logo"
-            onClick={() => {
-              router.push({
-                pathname: "/valuationConfirmation",
-                query: {
-                  carNumberPlate,
-                  carMileage,
-                  valuationData: valuationData,
-                },
-              });
-            }}
-          />
-          <Text>Back</Text>
-        </Flex>
-
-        <Flex
-          direction={"row"}
-          justify={{
-            base: "space-between",
-            sm: "space-between",
-            md: "flex-start",
-            lg: "flex-start",
-          }}
-          gap={{
-            base: 0,
-            sm: 0,
-            md: 4,
-            lg: 4,
-          }}
-          alignItems={"center"}
+        <Heading
+          color="#1f2e5a"
+          fontFamily={"Outfit, sans serif"}
+          fontWeight={800}
+          size={"xl"}
+          mt={4}
         >
-          <Heading
-            color="#1f2e5a"
-            fontFamily={"Outfit, sans serif"}
-            size={"xl"}
-          >
-            Your Details
-          </Heading>
-          <Box bg={"#1f2e5a"} px={4} py={2} borderRadius={"full"}>
-            <Text fontSize={"xs"} color={"white"}>
-              STEP 2 OF 3
-            </Text>
-          </Box>
-        </Flex>
-
+          Contact Us
+        </Heading>
+        <Text
+          color="#1f2e5a"
+          fontFamily={"Outfit, sans serif"}
+          fontSize={"xl"}
+          px={{ base: 0, sm: 0, md: 18, lg: 36 }}
+        >
+          Please do not hesitate to contact us if you have any questions about
+          selling your car.
+        </Text>
+        <Text
+          color="#1f2e5a"
+          fontFamily={"Outfit, sans serif"}
+          fontSize={"md"}
+          px={{ base: 0, sm: 0, md: 18, lg: 36 }}
+        >
+          - Head Office: SYCTA, 574 Manchester road, Atrium House, Greater
+          Manchester, BL99SW
+        </Text>
+        <Text
+          color="#1f2e5a"
+          fontFamily={"Outfit, sans serif"}
+          fontSize={"md"}
+          px={{ base: 0, sm: 0, md: 18, lg: 36 }}
+        >
+          Tel: 07402 715916
+        </Text>
+        <Text
+          color="#1f2e5a"
+          fontFamily={"Outfit, sans serif"}
+          fontSize={"md"}
+          px={{ base: 0, sm: 0, md: 18, lg: 36 }}
+        >
+          Email: syctasales@gmail.com
+        </Text>
+        <Text
+          color="#1f2e5a"
+          fontFamily={"Outfit, sans serif"}
+          fontSize={"md"}
+          px={{ base: 0, sm: 0, md: 18, lg: 36 }}
+        >
+          Instagram: @selltosycta
+        </Text>
+        <hr color="#EAEAEA" style={{ height: "2px", marginTop: "1rem" }} />
+        <Heading
+          color="#1f2e5a"
+          fontFamily={"Outfit, sans serif"}
+          fontWeight={800}
+          size={"lg"}
+          mt={4}
+        >
+          Submit a general enquiry
+        </Heading>
         <form onSubmit={handleSubmit}>
           <Flex
             direction={{ base: "column", sm: "column", md: "row", lg: "row" }}
@@ -229,7 +241,7 @@ export default function MyDetails() {
             <FormControl
               width={{ base: "100%", sm: "100%", md: "90%", lg: "91%" }}
             >
-              <FormLabel mb={2}>Extra Details</FormLabel>
+              <FormLabel mb={2}>Extra Details *</FormLabel>
               <InputGroup>
                 <Textarea
                   placeholder="Please enter any extra details"
@@ -248,21 +260,9 @@ export default function MyDetails() {
               textAlign={"center"}
               w={{ base: "100%", sm: "100%", md: "25%", lg: "25%" }}
               p={6}
-              isDisabled={
-                fullName.length === 0 ||
-                email.length === 0 ||
-                contactNumber.length === 0
-              }
-              onClick={() => {
-                router.push({
-                  pathname: "/valuationTwo",
-                  query: {
-                    carNumberPlate,
-                    carMileage,
-                    valuationData: valuationData,
-                  },
-                });
-              }}
+              isLoading={isLoading}
+              loadingText="Sending Query"
+              onClick={() => {}}
               _hover={{
                 background: "#1f2e5a",
               }}
@@ -271,7 +271,38 @@ export default function MyDetails() {
             </Button>
           </Flex>
         </form>
-      </Flex>
-    </Box>
+        {requestError && (
+          <Text
+            color="red.500"
+            textAlign="center"
+            fontWeight={700}
+            fontSize={"15px"}
+          >
+            An error occurred. Please try again.
+          </Text>
+        )}
+        {inputError && (
+          <Text
+            color="red.500"
+            textAlign="center"
+            fontWeight={700}
+            fontSize={"15px"}
+          >
+            Please fill all fields with a *
+          </Text>
+        )}
+        {requestSuccess && (
+          <Text
+            color="green.500"
+            textAlign="center"
+            fontWeight={700}
+            fontSize={"15px"}
+          >
+            Successfully sent details.
+          </Text>
+        )}
+      </Box>
+      <Footer />
+    </Flex>
   );
 }

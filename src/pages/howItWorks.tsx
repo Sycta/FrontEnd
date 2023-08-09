@@ -1,12 +1,14 @@
 import Navigation from "@/CommonComponents/Navbar";
+import Footer from "@/CommonComponents/footer";
 import HowItWorksSection from "@/Components/HowItWorks/howItWorksSection";
-import { Box } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 export default function howItWorks() {
   return (
-    <Box h="100vh" w="100%">
+    <Flex h="100vh" w="100%" direction="column">
       <Navigation />
       <HowItWorksSection />
-    </Box>
+      <Footer />
+    </Flex>
   );
 }

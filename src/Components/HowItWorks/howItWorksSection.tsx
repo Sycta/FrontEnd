@@ -1,18 +1,22 @@
 import IndividualInformationSection from "@/CommonComponents/IndividualInformationSectionProps";
 import { Flex, Heading, Box, Text } from "@chakra-ui/react";
+import { IoMdClock, IoMdMail, IoMdCash } from "react-icons/io";
 
 const sections = [
   {
     heading: "1. Get a free, instant valuation",
     text: "Enter details about your car and receive a FREE valuation",
+    icon: IoMdClock,
   },
   {
     heading: "2. Wait for us to contact you to book an appointment",
     text: "Enter your contact details and await to be contacted about an appointment",
+    icon: IoMdMail,
   },
   {
     heading: "3. Sell your car to SYCTA & receive payment",
     text: "Immediate payment, via bank transfer with no additional fees",
+    icon: IoMdCash,
   },
 ];
 
@@ -59,7 +63,7 @@ export default function HowItWorksSection() {
           return (
             <IndividualInformationSection
               key={index}
-              icon={undefined}
+              icon={section.icon}
               heading={section.heading}
               text={section.text}
             />
