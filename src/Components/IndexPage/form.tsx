@@ -72,7 +72,11 @@ const Form = () => {
       height={"fit-content"}
       py={10}
     >
-      <Image src="/Logo.png" alt="Sycta - The easy way to sell your car" />
+      <Image
+        src="/LogoV3.png"
+        alt="Sycta - The easy way to sell your car"
+        w={500}
+      />
       <Text
         color="#000"
         fontSize={"lg"}

@@ -30,20 +30,22 @@ import {
 
 export default function Contact() {
   return (
-    <Flex
-      h="100vh"
-      w="100%"
-      direction={"column"}
-      px={{ base: 2, sm: 4, md: 12, lg: 32 }}
-      background={"white"}
-      textAlign={"center"}
-    >
+    <>
       <Navigation />
-      <Introduction />
-      <ContactUsForm />
-      <ContactDetails />
-      <Footer />
-    </Flex>
+      <Flex
+        h="100vh"
+        w="100%"
+        direction={"column"}
+        px={{ base: 2, sm: 4, md: 12, lg: 32 }}
+        background={"white"}
+        textAlign={"center"}
+      >
+        <Introduction />
+        <ContactUsForm />
+        <ContactDetails />
+        <Footer />
+      </Flex>
+    </>
   );
 }
 
@@ -92,6 +94,7 @@ const ContactDetails = () => {
         alignSelf={"center"}
         textAlign={"center"}
         mb={12}
+        gap={3}
       >
         <Flex justify={"center"}>
           <Icon as={BsFillBuildingFill} boxSize={7} />

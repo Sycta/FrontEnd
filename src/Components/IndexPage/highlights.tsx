@@ -30,7 +30,7 @@ const sections = [
   {
     icon: BsBank,
     heading: "We Settle Finance",
-    text: "any outstanding finance can be settled by our team.",
+    text: "Any outstanding finance can be settled by our team.",
   },
   {
     icon: IoMdLock,

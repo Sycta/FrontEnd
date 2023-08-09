@@ -11,16 +11,17 @@ import {
   PopoverTrigger,
   useColorModeValue,
   useDisclosure,
+  Image,
 } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const router = useRouter();
+  const pathname = router.pathname;
+
+  console.log(pathname);
 
   return (
     <Box>
@@ -49,6 +50,15 @@ export default function Navigation() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
+        {pathname != "/" && (
+          <Flex
+            flex={{ base: 1, md: "auto" }}
+            ml={{ base: -2 }}
+            display={{ base: "flex", md: "none" }}
+          >
+            <Image src="./LogoV3.png" />
+          </Flex>
+        )}
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "center" }}>
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
