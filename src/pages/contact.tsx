@@ -22,7 +22,7 @@ import {
   MdLocationPin,
 } from "react-icons/md";
 
-export default function contact() {
+export default function Contact() {
   // State variables for form inputs
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
