@@ -162,7 +162,7 @@ const Form = () => {
           fontWeight={700}
           fontSize={"15px"}
         >
-          An error occurred. Please try again.
+          An error occurred. Please check your car number plate and try again.
         </Text>
       )}
     </Flex>
