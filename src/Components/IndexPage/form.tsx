@@ -8,7 +8,6 @@ import {
   Button,
   Text,
   Image,
-  Box,
 } from "@chakra-ui/react";
 
 const Form = () => {
@@ -44,7 +43,7 @@ const Form = () => {
         .then((data) => {
           setIsLoading(false);
           router.push({
-            pathname: "/valuation",
+            pathname: "/valuationConfirmation",
             query: {
               carNumberPlate,
               carMileage,
@@ -63,7 +62,7 @@ const Form = () => {
     <Flex
       direction="column"
       gap={2}
-      background={"#00ADEF"}
+      background={"#FFF"}
       padding={"2"}
       width={"100%"}
       justifyContent="center" // Center the content horizontally
@@ -72,11 +71,15 @@ const Form = () => {
       height={"fit-content"}
       py={10}
     >
-      <Image src="/Logo.png" alt="Sycta - The easy way to sell your car" />
+      <Image
+        src="/LogoV3.png"
+        alt="Sycta - The easy way to sell your car"
+        w={500}
+      />
       <Text
-        color="white"
+        color="#000"
         fontSize={"lg"}
-        fontWeight={400}
+        fontWeight={600}
         fontFamily="'M PLUS Rounded 1c', sans-serif"
       >
         Receive an instant valuation from your local trusted car buyer.
@@ -162,7 +165,7 @@ const Form = () => {
           fontWeight={700}
           fontSize={"15px"}
         >
-          An error occurred. Please try again.
+          An error occurred. Please check your car number plate and try again.
         </Text>
       )}
     </Flex>
