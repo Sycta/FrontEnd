@@ -26,7 +26,7 @@ export default function Navigation() {
   return (
     <Box>
       <Flex
-        bg={"white"}
+        bg={"gray.100"}
         color={"gray.600"}
         minH="60px"
         py={{ base: 2 }}
@@ -109,7 +109,7 @@ const DesktopNav = () => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={"white"}
+      bg={"gray.100"}
       p={4}
       display={{ md: "none" }}
       borderBottom={1}

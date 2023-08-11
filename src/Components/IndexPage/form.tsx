@@ -8,7 +8,6 @@ import {
   Button,
   Text,
   Image,
-  Box,
 } from "@chakra-ui/react";
 
 const Form = () => {

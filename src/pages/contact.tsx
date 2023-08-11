@@ -64,7 +64,7 @@ const Introduction = () => {
       <Text
         color="#1f2e5a"
         fontFamily={"Outfit, sans serif"}
-        fontSize={"xl"}
+        fontSize={{ base: "sm", sm: "sm", md: "lg", lg: "lg" }}
         px={{ base: 0, sm: 0, md: 18, lg: 36 }}
       >
         Please do not hesitate to contact us if you have any questions about
