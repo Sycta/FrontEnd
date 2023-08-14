@@ -65,41 +65,47 @@ export default function MyDetails() {
         </Flex>
 
         <Flex
-            direction={"row"}
-            justify={{
-              base: "space-between",
-              sm: "space-between",
-              md: "flex-start",
-              lg: "flex-start",
-            }}
-            gap={{
-              base: 0,
-              sm: 0,
-              md: 4,
-              lg: 4,
-            }}
-            alignItems={"center"}
+          direction={"row"}
+          justify={{
+            base: "space-between",
+            sm: "space-between",
+            md: "flex-start",
+            lg: "flex-start",
+          }}
+          gap={{
+            base: 0,
+            sm: 0,
+            md: 4,
+            lg: 4,
+          }}
+          alignItems={"center"}
+        >
+          <Heading
+            color="#1f2e5a"
+            fontFamily={"Outfit, sans serif"}
+            size={"xl"}
           >
-            <Heading
-              color="#1f2e5a"
-              fontFamily={"Outfit, sans serif"}
-              size={"xl"}
-            >
-              Your Valuation
-            </Heading>
-            <Box bg={"#1f2e5a"} px={4} py={2} borderRadius={"full"}>
-              <Text fontSize={"xs"} color={"white"}>
-                STEP 3 OF 3
-              </Text>
-            </Box>
-          </Flex>
-
+            Your Valuation
+          </Heading>
+          <Box bg={"#1f2e5a"} px={4} py={2} borderRadius={"full"}>
+            <Text fontSize={"xs"} color={"white"}>
+              STEP 3 OF 3
+            </Text>
+          </Box>
+        </Flex>
 
         <Flex direction={"column"}>
           <Heading
             color="#1f2e5a"
             fontFamily={"Outfit, sans serif"}
-            size={"2xl"}
+            fontSize={{ base: "40px", sm: "40px", md: "60px" }}
+            width={"fit-content"}
+            textAlign={"center"}
+            px={8}
+            fontWeight={"bold"}
+            border={"#3e3e3e 4px solid"}
+            borderRadius={"4px"}
+            backgroundColor={"#FDF035"}
           >
             £{parsedValuationData.price + 207}*
           </Heading>
