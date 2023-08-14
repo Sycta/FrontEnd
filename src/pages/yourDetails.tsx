@@ -23,7 +23,7 @@ import {
   MdLocationPin,
 } from "react-icons/md";
 
-export default function MyDetails() {
+export default function YourDetails() {
   const router = useRouter();
 
   const {
@@ -107,7 +107,7 @@ export default function MyDetails() {
             aria-label="Back logo"
             onClick={() => {
               router.push({
-                pathname: "/valuationConfirmation",
+                pathname: "/yourCar",
                 query: {
                   carNumberPlate,
                   carMileage,
@@ -255,7 +255,7 @@ export default function MyDetails() {
               }
               onClick={() => {
                 router.push({
-                  pathname: "/valuationTwo",
+                  pathname: "/valuation",
                   query: {
                     carNumberPlate,
                     carMileage,

@@ -24,10 +24,10 @@ const IndividualInformationSection: React.FC<
       {icon && <Icon as={icon} boxSize={10} color={"#1f2e5a"} />}
       <Heading
         color={"#00adef"}
-        fontFamily="'M PLUS Rounded 1c', sans-serif"
+        fontFamily="Outfit, sans-serif"
         as="h4"
         fontSize={{ base: "16px", sm: "16px", md: "16px", lg: "20px" }}
-        fontWeight={800}
+        fontWeight={700}
       >
         {heading}
       </Heading>

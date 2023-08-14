@@ -1,4 +1,3 @@
-import { useState } from "react"; // Import useState hook to handle form state
 import { Flex, Heading, Box, Text, IconButton } from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
@@ -12,7 +11,7 @@ const listOfAssumptions = [
   "It has no damage, including interior or mechanical",
 ];
 
-export default function MyDetails() {
+export default function Valuation() {
   const router = useRouter();
 
   const {
@@ -52,7 +51,7 @@ export default function MyDetails() {
             aria-label="Back logo"
             onClick={() => {
               router.push({
-                pathname: "/myDetails",
+                pathname: "/yourDetails",
                 query: {
                   carNumberPlate,
                   carMileage,

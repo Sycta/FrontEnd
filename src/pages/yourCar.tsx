@@ -1,8 +1,14 @@
 import { useRouter } from "next/router";
-import { Flex, Box, Heading, Text, Button, IconButton } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Heading,
+  Text,
+  Button,
+  IconButton,
+  Image,
+} from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import CarImage from "@/Components/ValuationPage/carImage";
-import IndividualCarDetails from "@/Components/ValuationPage/individualCarDetails";
 
 export default function ValuationConfirmation() {
   const router = useRouter();
@@ -84,56 +90,70 @@ export default function ValuationConfirmation() {
             </Box>
           </Flex>
 
-          <Flex direction={{base: "column", sm: "column", md: "column", lg: "row"}} gap={2} px={{base: 0, sm: 0, md: 36, lg: 36}}>
+          <Flex
+            direction={{
+              base: "column",
+              sm: "column",
+              md: "column",
+              lg: "row",
+            }}
+            gap={2}
+            px={{ base: 0, sm: 0, md: 36, lg: 36 }}
+          >
             <CarImage pictureSource={parsedValuationData.pictureSource} />
             <Flex direction={"column"}>
-            <Box>
-              <Heading
-                color="#1f2e5a"
-                fontFamily={"Outfit, sans serif"}
-                size={"xl"}
-              >
-                {carNumberPlate}
-              </Heading>
-              <Text fontSize={"xl"} fontWeight={500}>
-                {parsedValuationData.manufacturer}
-              </Text>
-              <Text fontSize={"xl"} fontWeight={500}>
-                {parsedValuationData.model}
-              </Text>
-            </Box>
-            <Flex dir="row" wrap={"wrap"}>
-              <IndividualCarDetails
-                heading={"year"}
-                value={parsedValuationData.year}
-              />
-              <IndividualCarDetails
-                heading={"Colour"}
-                value={parsedValuationData.colour}
-              />
-              <IndividualCarDetails
-                heading={"Transmission"}
-                value={parsedValuationData.transmission}
-              />
-              <IndividualCarDetails
-                heading={"Engine Size"}
-                value={parsedValuationData.engineSize}
-              />
-              <IndividualCarDetails
-                heading={"First Registered"}
-                value={parsedValuationData.firstRegistered}
-              />
-              <IndividualCarDetails heading={"Mileage"} value={carMileage} />
-            </Flex>
+              <Box>
+                <Heading
+                  color="#1f2e5a"
+                  fontFamily={"Outfit, sans serif"}
+                  size={"xl"}
+                >
+                  {carNumberPlate}
+                </Heading>
+                <Text fontSize={"xl"} fontWeight={500}>
+                  {parsedValuationData.manufacturer}
+                </Text>
+                <Text fontSize={"xl"} fontWeight={500}>
+                  {parsedValuationData.model}
+                </Text>
+              </Box>
+              <Flex dir="row" wrap={"wrap"}>
+                <IndividualCarDetails
+                  heading={"year"}
+                  value={parsedValuationData.year}
+                />
+                <IndividualCarDetails
+                  heading={"Colour"}
+                  value={parsedValuationData.colour}
+                />
+                <IndividualCarDetails
+                  heading={"Transmission"}
+                  value={parsedValuationData.transmission}
+                />
+                <IndividualCarDetails
+                  heading={"Engine Size"}
+                  value={parsedValuationData.engineSize}
+                />
+                <IndividualCarDetails
+                  heading={"First Registered"}
+                  value={parsedValuationData.firstRegistered}
+                />
+                <IndividualCarDetails heading={"Mileage"} value={carMileage} />
+              </Flex>
             </Flex>
           </Flex>
 
-          <Flex 
+          <Flex
             justify={"center"}
             gap={4}
-            direction={{base: "column", sm: "column", md: "column", lg: "row"}}
-            >
-          <Button
+            direction={{
+              base: "column",
+              sm: "column",
+              md: "column",
+              lg: "row",
+            }}
+          >
+            <Button
               fontFamily={"Outfit, sans serif"}
               type="submit"
               background={"#464646"}
@@ -155,7 +175,7 @@ export default function ValuationConfirmation() {
               background={"#1f2e5a"}
               onClick={() => {
                 router.push({
-                  pathname: "/myDetails",
+                  pathname: "/yourDetails",
                   query: {
                     carNumberPlate,
                     carMileage,
@@ -172,9 +192,47 @@ export default function ValuationConfirmation() {
             >
               STEP 2 : MY DETAILS
             </Button>
-            </Flex>
+          </Flex>
         </Flex>
       </Box>
     </>
   );
 }
+
+const CarImage = ({ pictureSource }: { pictureSource: string }) => {
+  return (
+    <Box
+      bg="white"
+      w={"100%"}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Image src={pictureSource} />
+    </Box>
+  );
+};
+
+const IndividualCarDetails = ({
+  heading,
+  value,
+}: {
+  heading: any;
+  value: any;
+}) => {
+  return (
+    <>
+      <Box textAlign={"start"} w={"50%"} textTransform={"uppercase"}>
+        <Text fontSize={"xl"}>{heading}</Text>
+      </Box>
+      <Box
+        textAlign={"end"}
+        w={"50%"}
+        textTransform={"uppercase"}
+        fontWeight={500}
+      >
+        <Text fontSize={"xl"}>{value}</Text>
+      </Box>
+    </>
+  );
+};

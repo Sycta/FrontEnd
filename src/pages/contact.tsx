@@ -1,7 +1,6 @@
 import Navigation from "@/CommonComponents/Navbar";
 import Footer from "@/CommonComponents/footer";
 import {
-  Box,
   Flex,
   Heading,
   Text,
