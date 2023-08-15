@@ -75,7 +75,7 @@ const CarValuationForm = () => {
       if (process.env.NODE_ENV === "development") {
         baseUrl = "http://localhost:8080";
       } else {
-        baseUrl = "https://buy-any-car-693543259e40.herokuapp.com"; // Replace with your production API URL
+        baseUrl = "https://sycta-fab9d2536a62.herokuapp.com"; // Replace with your production API URL
       }
 
       const url = `${baseUrl}/api/v1/valuation?reg=${carNumberPlate}&miles=${carMileage}`;
