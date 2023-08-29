@@ -75,6 +75,7 @@ export default function YourDetails() {
         postCode,
         query,
         carNumberPlate,
+        carMileage
       });
 
       fetch(url, {
