@@ -62,7 +62,7 @@ export default function YourDetails() {
       if (process.env.NODE_ENV === "development") {
         baseUrl = "http://localhost:8080";
       } else {
-        baseUrl = "https://buy-any-car-693543259e40.herokuapp.com";
+        baseUrl = "https://sycta-fab9d2536a62.herokuapp.com";
       }
 
       const url = `${baseUrl}/api/v1/email`;
